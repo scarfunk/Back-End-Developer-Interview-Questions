@@ -77,6 +77,7 @@ Sooner or later I will complete it with the relative answers. Feel free to contr
 
 * It is often heard that one of the most important goals in Object-Oriented Design (and code design in general) is to have High Cohesion and Loose Coupling. What does it mean? Why is it that important and how is it achieved?
 * Why does array index start with '0' in most of languages?
+  - 참조 링크: https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html  
 * How do tests and TDD influence code design?
 * Write a snippet of code violating the Don't Repeat Yourself (DRY) principle. Then, explain why is it a bad design, and fix it.
 * What's the difference between cohesion and coupling?
