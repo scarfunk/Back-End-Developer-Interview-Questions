@@ -61,7 +61,7 @@ Sooner or later I will complete it with the relative answers. Feel free to contr
   - 외부 라이브러리의 코드가 프로그래머가 작성한 코드를 호출하는 방식. 전통적인 프로그래밍 흐름에서 프로그래머가 작성한 프로그램이 외부라이브러리의 코드를 호출하는 방식과는 대조된다.
     프로그래머는 외부 라이브러리에서 호출할 객체의 타입, 함수의 반환 형식만 고려하면 되므로, 코드의 목적에 더 집중할 수 있다.
     EXPRESS.JS 에 익숙한 프로그래머라면 미들웨어를 생각하면 좀 더 이해하기 쉽지않을까.....
-    참조 링크 : https://en.wikipedia.org/wiki/Inversion_of_control
+  - 참조 링크 : https://en.wikipedia.org/wiki/Inversion_of_control
 * The Law of Demeter (the Principle of Least Knowledge) states that each unit should have only limited knowledge about other units and it should only talk to its immediate friends (sometimes stated as "Don't talk to strangers"). Would you write code violating this principle, show why it is a bad design and then fix it?
 * Active-Record is the design pattern that promotes objects to include functions such as Insert, Update, and Delete, and properties that correspond to the columns in some underlying database table. In your opinion and experience, which are the limits and pitfalls of the this pattern?
 * Data-Mapper is a design pattern that promotes the use of a layer of Mappers that moves data between objects and a database while keeping them independent of each other and the mapper itself. On the contrary, in Active-Record objects directly incorporate operations for persisting themselves to a database, and properties corresponding to the underlying database tables. Do you have an opinion on those patterns? When would you use one against the other?
@@ -147,6 +147,8 @@ Sooner or later I will complete it with the relative answers. Feel free to contr
 ### [[↑]](#toc) <a name='nosql'>Questions about NoSQL:</a>
 
 * What is Eventual Consistency?
+  - 분산 노드 환경에서 데이터의 업데이트가 발생하지않을때 점차적으로 모든 갱신정보는 모든 노드에 복사되므로 결국엔(eventual) 데이터의 일관성이 보장되는 형태. Mongodb 를 예로들면, Replica Set을 구성할경우 업데이트가 적은 데이터일경우 Primary 노드와 Secondary 노드간의 데이터의 차이가 일어날 확률이 적지만 업데이트가 빈번한 데이터일경우 Primary 노드와 Secondary 노드간의 데이터의 차이가 일어날수있다.
+  - 참조 링크: https://en.wikipedia.org/wiki/Eventual_consistency, https://www.mongodb.com/faq   (How does MongoDB ensure consistency?)
 * The Brewer's Theorem, most commonly known as the CAP theorem, states that in the presence of a Network Partition (the P in CAP), a system's designer has to choose between Consistency (the C in CAP) and Availability (the A in CAP). Can you think about examples of CP, AP and CA systems?
 * How would you explain the recent rise in interest for NoSQL?
 * How does NoSQL tackle scalability challenges?
