@@ -58,6 +58,10 @@ Sooner or later I will complete it with the relative answers. Feel free to contr
 * Why are global and static objects evil? Can you show it with a code example?
   - 프로세스가 죽을때 까지 객체가 해제 되지 않기 때문일거 같다. 반면. 지역객체의 경우는 그 스코프가 해체될때 메모리가 해제 될것이므로.
 * Tell me about Inversion of Control and how does it improve the design of code.
+  - 외부 라이브러리의 코드가 프로그래머가 작성한 코드를 호출하는 방식. 전통적인 프로그래밍 흐름에서 프로그래머가 작성한 프로그램이 외부라이브러리의 코드를 호출하는 방식과는 대조된다.
+    프로그래머는 외부 라이브러리에서 호출할 객체의 타입, 함수의 반환 형식만 고려하면 되므로, 코드의 목적에 더 집중할 수 있다.
+    EXPRESS.JS 에 익숙한 프로그래머라면 미들웨어를 생각하면 좀 더 이해하기 쉽지않을까.....
+    참조 링크 : https://en.wikipedia.org/wiki/Inversion_of_control
 * The Law of Demeter (the Principle of Least Knowledge) states that each unit should have only limited knowledge about other units and it should only talk to its immediate friends (sometimes stated as "Don't talk to strangers"). Would you write code violating this principle, show why it is a bad design and then fix it?
 * Active-Record is the design pattern that promotes objects to include functions such as Insert, Update, and Delete, and properties that correspond to the columns in some underlying database table. In your opinion and experience, which are the limits and pitfalls of the this pattern?
 * Data-Mapper is a design pattern that promotes the use of a layer of Mappers that moves data between objects and a database while keeping them independent of each other and the mapper itself. On the contrary, in Active-Record objects directly incorporate operations for persisting themselves to a database, and properties corresponding to the underlying database tables. Do you have an opinion on those patterns? When would you use one against the other?
