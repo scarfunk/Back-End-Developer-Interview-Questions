@@ -61,11 +61,20 @@ Sooner or later I will complete it with the relative answers. Feel free to contr
   - 외부 라이브러리의 코드가 프로그래머가 작성한 코드를 호출하는 방식. 전통적인 프로그래밍 흐름에서 프로그래머가 작성한 프로그램이 외부라이브러리의 코드를 호출하는 방식과는 대조된다.
     프로그래머는 외부 라이브러리에서 호출할 객체의 타입, 함수의 반환 형식만 고려하면 되므로, 코드의 목적에 더 집중할 수 있다.
     EXPRESS.JS 에 익숙한 프로그래머라면 미들웨어를 생각하면 좀 더 이해하기 쉽지않을까.....
-  - 참조 링크 : https://en.wikipedia.org/wiki/Inversion_of_control
+  - 참조 링크 : <https://en.wikipedia.org/wiki/Inversion_of_control>
+  - 위의 내용은 조금 추상적으로 보여 사족을 달면, java spring 에서의 개념을 비유해본다면, 가장 핵심적인 철학은 ioc+DI 인데, 객체 생성을 한예로 들자면, 보통의 경우는 사용자(프로그래머) 가 개발 로직상에서 객체를 생성하는 로직을 함께 넣지만, spring 의 ioc 는 (컨테이너라고 불리우는) 객체를 생성하는 임무(+life cycle 등) 를 프레임워크 단위에서 관리해준다는 것이다. 당신은 비즈니스 로직에만 신경쓰시오 같은 의미. 관심사의 분리(SOC) 와도 결합되는 내용이다.
+
 * The Law of Demeter (the Principle of Least Knowledge) states that each unit should have only limited knowledge about other units and it should only talk to its immediate friends (sometimes stated as "Don't talk to strangers"). Would you write code violating this principle, show why it is a bad design and then fix it?
 * Active-Record is the design pattern that promotes objects to include functions such as Insert, Update, and Delete, and properties that correspond to the columns in some underlying database table. In your opinion and experience, which are the limits and pitfalls of the this pattern?
 * Data-Mapper is a design pattern that promotes the use of a layer of Mappers that moves data between objects and a database while keeping them independent of each other and the mapper itself. On the contrary, in Active-Record objects directly incorporate operations for persisting themselves to a database, and properties corresponding to the underlying database tables. Do you have an opinion on those patterns? When would you use one against the other?
 * Why it is often said that the introduction of `null` is a "Billion dollar mistake"? Would you discuss the techniques to avoid it, such as the Null Object Pattern introduced by the GOF book, or Option types?
+  - Tony Hoare 라는 양반이 1965년에 null 레퍼런스를 발명(?) 하였으며, 2009 년 발표에서 이것이 실수였다 라고 하였음.
+  - 만들시기에는 모든 참조는 절대적으로 안전해야 하므로, 이것을 만들었다 고함
+  - 객체가 null 일때(null 레퍼런스) 그것에서 추가적인 참조(변수, 메소드) 등을 이용하려 할때 널포인트익셉션이 생겨난다.
+  - foo.bar.baz 를 접근하려는데 foo 부터가 null 이라면..? 런타임에러!!
+  - 이것을 극복하기 위해 option type 이 몇몇 언어에 존재한다. es 도 proposal 에 있는것으로 안다. <https://github.com/tc39/proposal-optional-chaining>. 만약 널이라면 정해진 동작을 해주는 것(NPE 를 피하자!)을 축소 문법화 시키는것으로 보면 될것 같다.
+  - 하지만 결국 널참조를 일어나지 않게 코딩하는것이 가장 좋지 않을까? 물론 인간은 완벽하게 코드를 짤순 없지만 모든객체를 옵셔널화? 하는것도 굉장히 오버엔지니어링이란 생각이 든다. 
+  
 * Many state that, in Object-Oriented Programming, Composition is often a better option than Inheritance. What's you opinion?
 * What is an Anti-corruption Layer?
 * Singleton is a design pattern that restricts the instantiation of a class to one single object. Writing a Thread-Safe Singleton class is not so obvious. Would you try?
@@ -148,7 +157,7 @@ Sooner or later I will complete it with the relative answers. Feel free to contr
 
 * What is Eventual Consistency?
   - 분산 노드 환경에서 데이터의 업데이트가 발생하지않을때 점차적으로 모든 갱신정보는 모든 노드에 복사되므로 결국엔(eventual) 데이터의 일관성이 보장되는 형태. Mongodb 를 예로들면, Replica Set을 구성할경우 업데이트가 적은 데이터일경우 Primary 노드와 Secondary 노드간의 데이터의 차이가 일어날 확률이 적지만 업데이트가 빈번한 데이터일경우 Primary 노드와 Secondary 노드간의 데이터의 차이가 일어날수있다.
-  - 참조 링크: https://en.wikipedia.org/wiki/Eventual_consistency, https://www.mongodb.com/faq   (How does MongoDB ensure consistency?)
+  - 참조 링크: <https://en.wikipedia.org/wiki/Eventual_consistency>, <https://www.mongodb.com/faq>   (How does MongoDB ensure consistency?)
 * The Brewer's Theorem, most commonly known as the CAP theorem, states that in the presence of a Network Partition (the P in CAP), a system's designer has to choose between Consistency (the C in CAP) and Availability (the A in CAP). Can you think about examples of CP, AP and CA systems?
 * How would you explain the recent rise in interest for NoSQL?
 * How does NoSQL tackle scalability challenges?
